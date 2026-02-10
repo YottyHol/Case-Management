@@ -7,7 +7,6 @@ interface CaseCardProps {
 
 function CaseCard({ case: caseItem, onStatusChange }: CaseCardProps) {
   const handleClick = () => {
-    // Toggle status between 'open' and 'closed'
     const newStatus: CaseStatus = caseItem.status === 'open' ? 'closed' : 'open'
     onStatusChange(caseItem.id, newStatus)
   }

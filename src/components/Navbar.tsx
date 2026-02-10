@@ -16,10 +16,10 @@ function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <a
-              href="#features"
+              href="#cases"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Features
+              Cases
             </a>
             <a
               href="#about"
@@ -69,10 +69,10 @@ function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
             <a
-              href="#features"
+              href="#cases"
               className="block text-gray-700 hover:text-blue-600"
             >
-              Features
+              Cases
             </a>
             <a
               href="#about"
