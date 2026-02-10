@@ -15,16 +15,24 @@ function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all transform hover:scale-105">
-              Get Started
-            </button>
+            <a
+              href="#features"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Features
+            </a>
+            <a
+              href="#about"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Contact
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -32,11 +40,26 @@ function Navbar() {
             className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -45,12 +68,24 @@ function Navbar() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a href="#features" className="block text-gray-700 hover:text-blue-600">Features</a>
-            <a href="#about" className="block text-gray-700 hover:text-blue-600">About</a>
-            <a href="#contact" className="block text-gray-700 hover:text-blue-600">Contact</a>
-            <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg">
-              Get Started
-            </button>
+            <a
+              href="#features"
+              className="block text-gray-700 hover:text-blue-600"
+            >
+              Features
+            </a>
+            <a
+              href="#about"
+              className="block text-gray-700 hover:text-blue-600"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              className="block text-gray-700 hover:text-blue-600"
+            >
+              Contact
+            </a>
           </div>
         )}
       </div>
@@ -59,4 +94,3 @@ function Navbar() {
 }
 
 export default Navbar
-
