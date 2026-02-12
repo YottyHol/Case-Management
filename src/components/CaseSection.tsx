@@ -5,62 +5,26 @@ import { Case, CaseStatus } from '../types/case'
 function CaseSection() {
   const [cases, setCases] = useState<Case[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Fetch cases from API
+  // Fetch cases from FastAPI backend
   useEffect(() => {
     const fetchCases = async () => {
       try {
         setLoading(true)
-        // TODO: Replace with actual API call
-        // const response = await fetch('/api/cases')
-        // const data = await response.json()
+        setError(null)
 
-        // Mock data for now - replace with API call
-        const mockCases: Case[] = [
-          {
-            id: 1,
-            title: 'Client Contract Review',
-            description:
-              'Review and finalize the new client contract terms and conditions.',
-            status: 'open',
-            client: 'Acme Corp',
-            priority: 'high',
-            createdAt: new Date().toISOString(),
-          },
-          {
-            id: 2,
-            title: 'Legal Documentation',
-            description: 'Prepare legal documentation for the merger agreement.',
-            status: 'open',
-            client: 'Tech Solutions Inc',
-            priority: 'medium',
-            createdAt: new Date(Date.now() - 86400000).toISOString(),
-          },
-          {
-            id: 3,
-            title: 'Compliance Audit',
-            description:
-              'Complete quarterly compliance audit and submit report.',
-            status: 'closed',
-            client: 'Global Industries',
-            priority: 'high',
-            createdAt: new Date(Date.now() - 172800000).toISOString(),
-          },
-          {
-            id: 4,
-            title: 'Patent Application',
-            description:
-              'File patent application for new technology innovation.',
-            status: 'open',
-            client: 'Innovation Labs',
-            priority: 'low',
-            createdAt: new Date(Date.now() - 259200000).toISOString(),
-          },
-        ]
+        const response = await fetch('http://localhost:8000/cases')
 
-        setCases(mockCases)
-      } catch (error) {
-        console.error('Error fetching cases:', error)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch cases: ${response.status}`)
+        }
+
+        const data: Case[] = await response.json()
+        setCases(data)
+      } catch (err) {
+        console.error('Error fetching cases:', err)
+        setError('Unable to load cases. Please try again later.')
       } finally {
         setLoading(false)
       }
@@ -100,6 +64,16 @@ function CaseSection() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <p className="text-gray-600">Loading cases...</p>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center">
+          <p className="text-red-600">{error}</p>
         </div>
       </section>
     )
