@@ -1,5 +1,5 @@
 # Case-Management
-Case Management Application using React and Fast API
+Case Management Application using React
 
 ## Frontend Setup
 
