@@ -4,6 +4,9 @@ import { Link, NavLink } from 'react-router-dom'
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-gray-700 hover:text-blue-600 transition-colors ${isActive ? 'font-semibold text-blue-600' : ''}`
 
+const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `block ${navLinkClass({ isActive })}`
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
@@ -69,21 +72,21 @@ function Navbar() {
             <NavLink
               to="/"
               end
-              className={navLinkClass}
+              className={mobileNavLinkClass}
               onClick={() => setIsMenuOpen(false)}
             >
               Cases
             </NavLink>
             <NavLink
               to="/animations"
-              className={navLinkClass}
+              className={mobileNavLinkClass}
               onClick={() => setIsMenuOpen(false)}
             >
               Animations
             </NavLink>
             <NavLink
               to="/contact"
-              className={navLinkClass}
+              className={mobileNavLinkClass}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
