@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
+const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `text-gray-700 hover:text-blue-600 transition-colors ${isActive ? 'font-semibold text-blue-600' : ''}`
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -8,31 +12,25 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <Link
+              to="/"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            >
               Case Management
-            </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <a
-              href="#cases"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
+            <NavLink to="/" end className={navLinkClass}>
               Cases
-            </a>
-            <a
-              href="#animationSection"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/animations" className={navLinkClass}>
               Animations
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/contact" className={navLinkClass}>
               Contact
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,24 +66,28 @@ function Navbar() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a
-              href="#cases"
-              className="block text-gray-700 hover:text-blue-600"
+            <NavLink
+              to="/"
+              end
+              className={navLinkClass}
+              onClick={() => setIsMenuOpen(false)}
             >
               Cases
-            </a>
-            <a
-              href="#animationSection"
-              className="block text-gray-700 hover:text-blue-600"
+            </NavLink>
+            <NavLink
+              to="/animations"
+              className={navLinkClass}
+              onClick={() => setIsMenuOpen(false)}
             >
               Animations
-            </a>
-            <a
-              href="#contact"
-              className="block text-gray-700 hover:text-blue-600"
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={navLinkClass}
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
+            </NavLink>
           </div>
         )}
       </div>
