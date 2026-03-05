@@ -22,10 +22,10 @@ function Navbar() {
               Cases
             </a>
             <a
-              href="#about"
+              href="#animationSection"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
-              About
+              Animations
             </a>
             <a
               href="#contact"
@@ -75,10 +75,10 @@ function Navbar() {
               Cases
             </a>
             <a
-              href="#about"
+              href="#animationSection"
               className="block text-gray-700 hover:text-blue-600"
             >
-              About
+              Animations
             </a>
             <a
               href="#contact"
