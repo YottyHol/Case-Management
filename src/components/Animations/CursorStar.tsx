@@ -24,9 +24,6 @@ function CursorStar() {
 
   return (
     <div>
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-        Cursor Star Animation
-      </h2>
       <motion.div
         style={{
           position: 'fixed',
